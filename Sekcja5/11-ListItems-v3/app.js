@@ -24,6 +24,7 @@ const data = {
 }
 
 const Item = ({ user }) => (
+  
   <div>
     <h1>Użytkownik {user.name}</h1>
     <h2>Ma {user.age}</h2>

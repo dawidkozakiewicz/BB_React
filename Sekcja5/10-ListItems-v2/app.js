@@ -8,7 +8,7 @@ class ListItems extends React.Component {
   render() {
 
     const Items = this.state.items.map(item => <Item key={item} content={item} />)
-
+        console.log(Items)
     return (
       <ul>
         {Items}

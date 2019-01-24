@@ -40,7 +40,7 @@ class ListItems extends React.Component {
     select: "all",
   }
 
-  handleUsersFilter(option) {
+  handleUsersFilter = (option) => {
     this.setState({
       select: option
     })
@@ -66,9 +66,10 @@ class ListItems extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleUsersFilter.bind(this, "all")}>Wszyscy</button>
-        <button onClick={this.handleUsersFilter.bind(this, "female")}>Kobiety</button>
-        <button onClick={this.handleUsersFilter.bind(this, "male")}>Mężczyźni</button>
+        <button onClick={()=>this.handleUsersFilter("all")}>Wszyscy</button>
+        <button onClick={()=>this.handleUsersFilter("female")}>Kobiety</button>
+        <button onClick={()=>this.handleUsersFilter("male")}>Mężczyźni</button>
+        
         {this.usersList()}
       </div>
     )
@@ -76,3 +77,4 @@ class ListItems extends React.Component {
 }
 
 ReactDOM.render(<ListItems data={data} />, document.getElementById('root'))
+

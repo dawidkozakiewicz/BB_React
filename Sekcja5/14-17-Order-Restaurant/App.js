@@ -18,11 +18,11 @@ class App extends React.Component {
       if (id === item.id) {
         item.active = !item.active
       }
-      return item
+       return item
     })
 
     this.setState({
-      items
+      items: items
     })
 
   }
