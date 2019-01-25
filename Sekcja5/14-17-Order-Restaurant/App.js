@@ -19,6 +19,7 @@ class App extends React.Component {
         item.active = !item.active
       }
        return item
+       
     })
 
     this.setState({
