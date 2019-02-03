@@ -33,7 +33,7 @@ class Draw extends React.Component {
     // options.push(this.state.value)
     const options = this.state.options.concat(this.state.value);
     this.setState({
-      options,
+      options: options,
       value: '',
     })
     alert(`Wróżba dodana. Aktualne wróżby: ${options}`)
