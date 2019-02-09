@@ -51,7 +51,7 @@ class Clock extends React.Component {
     console.log("Zegarek zamontowany");
     this.interval = setInterval(() => this.setTime(), 1000)
   }
-
+  
   componentWillUnmount() {
     console.log("Zegarek usunięty");
     clearInterval(this.interval)
