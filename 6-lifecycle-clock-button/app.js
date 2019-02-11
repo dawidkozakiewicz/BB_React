@@ -28,7 +28,7 @@ class Clock extends React.Component {
   state = {
     time: this.getTime()
   }
-
+  
   getTime() {
     const currentTime = new Date();
     // console.log(currentTime);
@@ -58,6 +58,7 @@ class Clock extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     const { hours, minutes, seconds } = this.state.time
 
     return (
