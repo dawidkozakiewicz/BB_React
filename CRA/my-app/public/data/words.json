@@ -13,8 +13,18 @@
     },
     {
       "id": 3,
-      "en": "fish",
-      "pl": "ryba"
+      "en": "orange",
+      "pl": "pomarańcza"
+    },
+    {
+      "id": 4,
+      "en": "plum",
+      "pl": "śliwka"
+    },
+    {
+      "id": 5,
+      "en": "lodówka",
+      "pl": "refrigerator"
     }
   ]
 }
