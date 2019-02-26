@@ -1,55 +1,48 @@
 import React, { Component } from 'react';
 import './App.css';
-import Word from './Word';
+import UsersList from './UsersList';
+import ButtonFetchUsers from './ButtonFetchUsers'
 
-
-fetch('data/words.json').then(data => console.log(data.json()))
+const API = 'https://randomuser.me/api/?results=5';
 
 class App extends Component {
 
   state = {
-    words: [],
-    isLoaded: false,
+    users: null
   }
 
-  componentDidMount() {
-    setTimeout(this.fetchData, 3000)
-    // fetch('data/words.json')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.setState({
-    //       words: data.words,
-    //       isLoaded: true
-    //     })
-    //   })
-  }
-
-  fetchData = () => {
-    fetch('data/words.json')
-      .then(response => response.json())
-      
-      .then(data => {
-        this.setState({
-          words: data.words,
-          isLoaded: true
-        })
+  handleDataFetch = () => {
+    // console.log("click");
+    fetch(API)
+      .then(response => {
+        if (response.ok) {
+          // console.log(response);
+          return response;
+        }
+        throw Error(response.status)
       })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          users: data.results
+        })
+
+      })
+      .catch(error => console.log(error + " coś nie tak"))
+
   }
 
   render() {
-    console.log("render");
-    const words = this.state.words.map(word => (
-      <Word key={word.id} english={word.en} polish={word.pl} />
-    ))
 
-    console.log(words)
+    const users = this.state.users;
     return (
-      <ul>
-        {this.state.isLoaded ? words : "Wczytuję dane"}
-      </ul>
+      <div>
+        <ButtonFetchUsers click={this.handleDataFetch} />
+        {users ? <UsersList users={users} /> : users}
+      </div>
     );
   }
 }
 
 export default App;
-
